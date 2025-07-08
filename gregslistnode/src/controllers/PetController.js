@@ -21,13 +21,12 @@ export class PetController extends BaseController {
   }
 
   async getOnePet(request, response, next) {
-
     try {
       const petId = request.params.petId;
       console.log('getting', petId);
 
       const pet = await petsService.getOnePet(petId);
-      response.sent(pet);
+      response.send(pet);
     } catch (error) {
       next(error);
     }
